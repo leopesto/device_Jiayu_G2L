@@ -17,7 +17,7 @@ endif
 PRODUCT_COPY_FILES += \
     device/jiayu/G2L/prebuilt/root/init.G2L.rc:root/init.G2L.rc \
     device/jiayu/G2L/prebuilt/root/init.G2L.usb.rc:root/init.G2L.usb.rc \
-    device/jiayu/G2L/prebuilt/root/ueventd.G2L.rc:root/ueventd.G2L.rc \
+    device/jiayu/G2L/prebuilt/root/ueventd.G2L.rc:root/ueventd.rc \
 
 $(call inherit-product, build/target/product/full.mk)
 
