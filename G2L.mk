@@ -8,19 +8,16 @@ $(call inherit-product-if-exists, vendor/jiayu/G2L/G2L-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/jiayu/G2L/overlay
 
 LOCAL_PATH := device/Jiayu/G2L
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+ifneq ($(TARGET_PREBUILT_KERNEL),)
+	PRODUCT_COPY_FILES += \
+		device/jiayu/G2L/kernel:kernel
+endif
 
 PRODUCT_COPY_FILES += \
     device/jiayu/G2L/prebuilt/root/init.G2L.rc:root/init.G2L.rc \
     device/jiayu/G2L/prebuilt/root/init.G2L.usb.rc:root/init.G2L.usb.rc \
-    device/jiayu/G2L/prebuilt/root/ueventd.G2L.rc:root/ueventd.rc \
+    device/jiayu/G2L/prebuilt/root/ueventd.G2L.rc:root/ueventd.G2L.rc \
 
 $(call inherit-product, build/target/product/full.mk)
 
